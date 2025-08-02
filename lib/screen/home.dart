@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,8 +13,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('REST API call'),
+        title: Text('REST API called'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: fetchUsers,
       ),
     );
+  }
+
+  void fetchUsers(){
+    print('fetchUsers called');
   }
 }
