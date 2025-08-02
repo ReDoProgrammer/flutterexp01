@@ -25,11 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
         itemBuilder: (context,index){
           final user = users[index];
           final email = user.email;
+          final name = user.name;
           return ListTile(
             leading: ClipRRect(
               borderRadius:BorderRadius.circular(100),
             ),
             title: Text(email),
+            subtitle: Text(name.ToString()),
           );
         },
       ),
@@ -48,12 +50,14 @@ class _HomeScreenState extends State<HomeScreen> {
     final jsResult = jsonDecode(body);
     final result = jsResult['results'] as List<dynamic>;
     final transformed = result.map((e){
+      final name = UserName(title: e['name']['title'], first: e['name']['first'], last: e['name']['last']);
         return User(
           cell: e['cell'],
           email: e['email'],
           gender: e['gender'],
           nat: e['nat'],
-          phone: e['phone']
+          phone: e['phone'],
+          name: name
         );
     }).toList();
     setState(() {

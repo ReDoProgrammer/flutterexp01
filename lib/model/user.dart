@@ -4,6 +4,7 @@ class User{
   final String phone;
   final String cell;
   final String nat;
+  final UserName name;
 
 
   User({
@@ -12,8 +13,22 @@ class User{
         required this.phone,
         required this.cell,
         required this.nat,
+        required this.name,
   });
 
 
+
+}
+
+class UserName {
+  final String title;
+  final String first;
+  final String last;
+  UserName({required this.title,required this.first, required this.last});
+
+  @override
+  String ToString(){
+    return '$title $first $last';
+  }
 
 }
