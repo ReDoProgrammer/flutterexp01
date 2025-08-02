@@ -27,7 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
           final avatarUrl = user['picture']['thumbnail'];
           print(avatarUrl);
           return ListTile(
-            leading: CircleAvatar(
+            leading: ClipRRect(
+              borderRadius:BorderRadius.circular(100),
                 child: Image.network(avatarUrl),
             ),
             title: Text(email),
