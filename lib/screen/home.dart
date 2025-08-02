@@ -24,10 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
           final user = users[index];
           final name = '${user['name']['title']} ${user['name']['first']} ${user['name']['last']}';
           final email = user['email'];
-          final avatar = user['picture']['thumbnail'];
+          final avatarUrl = user['picture']['thumbnail'];
+          print(avatarUrl);
           return ListTile(
             leading: CircleAvatar(
-                child: Text('${++index}'),
+                child: Image.network(avatarUrl),
             ),
             title: Text(email),
             subtitle: Text(name),
